@@ -14,7 +14,7 @@ The LIS3MDL is an ultra-low-power highperformance three-axis magnetic sensor. Th
 - Power-down mode / low-power mode
 - ECOPACK®, RoHS and “Green” compliant
 ## Pin Description
-![LIS3MDL](https://www.mouser.com/images/stmicroelectronics/lrg/Magnetometer_LIS3MDL_p3339big.jpg)
+![LIS3MDL](https://www.mouser.in/images/marketingid/2013/img/139992640.png?v=051121.0947)
 |Pin #|Name|Function|
 |--|--|--|
 |1|SCL|I2C serial clock|
