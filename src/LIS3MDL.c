@@ -30,7 +30,6 @@ LIS3MDL_Result_t LIS3MDL_Init(LIS3MDL_t *hsensor, LIS3MDL_Device_t dev, LIS3MDL_
 
     if (HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t)hsensor->addr, 2, 5) != HAL_OK)
         return LIS3MDL_ERROR;
-    return LIS3MDL_OK;
 
     readByte(&hi2c1, hsensor->addr, WHO_AM_I, &data);
     if (data != 0x3D)
