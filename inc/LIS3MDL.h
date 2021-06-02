@@ -65,8 +65,35 @@ typedef struct {
 } LIS3MDL_t;
 
 /* Sensor Functions */
+/**
+ * @brief         Initializes the sensor according to the specified parameters.
+ * 
+ * @param hsensor Pointer to a LIS3MDL_t handler structure that contains the
+ *                configuration and axis values information for specified sensor.
+ * @param dev     Specified sensor device no for the I2C address selection.
+ * @param scale   Magnetometer full scale selection.
+ * @param mode    Sensor's operation mode selection.
+ * @param odr     Sensor's output data rate selection.
+ * @return        LIS3MDL status
+ */
 LIS3MDL_Result_t LIS3MDL_Init(LIS3MDL_t *hsensor, LIS3MDL_Device_t dev, LIS3MDL_Scale_t scale, LIS3MDL_OperationMode_t mode, LIS3MDL_ODR_t odr);
+
+/**
+ * @brief         Reads the 3-axis magnetometer values for specified sensor.
+ * 
+ * @param hsensor Pointer to a LIS3MDL_t handler structure that contains the
+ *                configuration and axis values information for specified sensor.
+ * @return        LIS3MDL status
+ */
 LIS3MDL_Result_t LIS3MDL_ReadMag(LIS3MDL_t *hsensor);
+
+/**
+ * @brief         Reads the temperature in Celcius for specified sensor.
+ * 
+ * @param hsensor Pointer to a LIS3MDL_t handler structure that contains the
+ *                configuration and axis values information for specified sensor.
+ * @return        LIS3MDL status
+ */
 LIS3MDL_Result_t LIS3MDL_ReadTemp(LIS3MDL_t *hsensor);
 
 #endif /* LIS3MDL_H */
