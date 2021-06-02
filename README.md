@@ -40,5 +40,4 @@ This library is created for STM32 development environment and can be used only w
 ***Note:**  This library requires HAL!*
 
 # License
-Copyright (c) 2021 Talha Sarı
 GNU General Public License v3.0
