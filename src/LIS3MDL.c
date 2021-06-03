@@ -25,7 +25,7 @@ static HAL_StatusTypeDef readMultiBytes(I2C_HandleTypeDef *hi2c1, uint8_t device
 LIS3MDL_Result_t LIS3MDL_Init(LIS3MDL_t *hsensor, LIS3MDL_Device_t dev, LIS3MDL_Scale_t scale, LIS3MDL_OperationMode_t mode, LIS3MDL_ODR_t odr)
 {
     uint8_t data;
-    hsensor->addr = (uint8_t)dev;
+    hsensor->addr = (uint8_t)(dev << 1);
     hsensor->scale = (LIS3MDL_Scale_t)scale;
 
     if (HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t)hsensor->addr, 2, 5) != HAL_OK)
