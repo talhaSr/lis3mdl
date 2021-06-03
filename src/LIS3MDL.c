@@ -75,9 +75,9 @@ LIS3MDL_Result_t LIS3MDL_ReadMag(LIS3MDL_t *hsensor)
 
     readMultiBytes(&hi2c1, hsensor->addr, OUT_X_L, data, 6);
 
-    hsensor->mag_raw[0] = ((int16_t)data[0] << 8) | data[1];
-    hsensor->mag_raw[1] = ((int16_t)data[2] << 8) | data[3];
-    hsensor->mag_raw[2] = ((int16_t)data[4] << 8) | data[5];
+    hsensor->mag_raw[0] = ((int16_t)data[1] << 8) | data[0];
+    hsensor->mag_raw[1] = ((int16_t)data[3] << 8) | data[2];
+    hsensor->mag_raw[2] = ((int16_t)data[5] << 8) | data[4];
 
     switch (hsensor->scale) {
         case LIS3MDL_Scale_4G:
@@ -110,7 +110,7 @@ LIS3MDL_Result_t LIS3MDL_ReadTemp(LIS3MDL_t *hsensor)
     
     readMultiBytes(&hi2c1, hsensor->addr, TEMP_OUT_L, data, 2);
 
-    hsensor->temp_raw = ((int16_t)data[0] << 8) | data[1];
+    hsensor->temp_raw = ((int16_t)data[1] << 8) | data[0];
     hsensor->temp = (float)(hsensor->temp_raw / 8.0f);
 
     return LIS3MDL_OK;
