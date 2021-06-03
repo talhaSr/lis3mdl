@@ -32,7 +32,7 @@ typedef enum {
 
 typedef enum {
     LIS3MDL_MODE_LOWPOWER = 0x00,
-    LIS3MDL_MODE_MEDIU = 0x01,
+    LIS3MDL_MODE_MEDIUM = 0x01,
     LIS3MDL_MODE_HIGH = 0x02,
     LIS3MDL_MODE_ULTRAHIGH = 0x03
 } LIS3MDL_OperationMode_t;
