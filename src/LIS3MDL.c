@@ -3,7 +3,7 @@
  * @author Talha Sarı (talha.sari@outlook.com.tr)
  * @brief LIS3MDL 3-axis magnetometer I2C library for STM32 environment
  * @version v1.1
- * @date 2021-06-02
+ * @date 2021-06-07
  * 
  * @copyright Copyright (c) 2021 - GNU General Public License v3
  * 
