@@ -1,0 +1,6 @@
+LIS3MDL.c:21:18:LIS3MDL_Init	32	static
+LIS3MDL.c:67:18:LIS3MDL_ReadMag	32	static
+LIS3MDL.c:102:18:LIS3MDL_ReadTemp	32	static
+LIS3MDL.c:115:26:writeByte	32	static
+LIS3MDL.c:127:26:readByte	32	static
+LIS3MDL.c:140:26:readMultiBytes	32	static
