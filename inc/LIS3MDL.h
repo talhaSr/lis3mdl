@@ -2,7 +2,7 @@
  * @file LIS3MDL.h
  * @author Talha Sarı (talha.sari@outlook.com.tr)
  * @brief LIS3MDL 3-axis magnetometer I2C library for STM32 environment
- * @version v1.0
+ * @version v1.1
  * @date 2021-06-02
  * 
  * @copyright Copyright (c) 2021 - GNU General Public License v3
@@ -11,6 +11,9 @@
 
 #ifndef LIS3MDL_H
 #define LIS3MDL_H
+
+#include <stdint.h>
+#include "main.h"
 
 /* Structure and Enums */
 typedef enum {
@@ -70,30 +73,33 @@ typedef struct {
  * 
  * @param hsensor Pointer to a LIS3MDL_t handler structure that contains the
  *                configuration and axis values information for specified sensor.
+ * @param hi2c    Pointer to I2C_HandleTypeDef for the I2C bus.
  * @param dev     Specified sensor device no for the I2C address selection.
  * @param scale   Magnetometer full scale selection.
  * @param mode    Sensor's operation mode selection.
  * @param odr     Sensor's output data rate selection.
  * @return        LIS3MDL status
  */
-LIS3MDL_Result_t LIS3MDL_Init(LIS3MDL_t *hsensor, LIS3MDL_Device_t dev, LIS3MDL_Scale_t scale, LIS3MDL_OperationMode_t mode, LIS3MDL_ODR_t odr);
+LIS3MDL_Result_t LIS3MDL_Init(LIS3MDL_t *hsensor, I2C_HandleTypeDef *hi2c, LIS3MDL_Device_t dev, LIS3MDL_Scale_t scale, LIS3MDL_OperationMode_t mode, LIS3MDL_ODR_t odr);
 
 /**
  * @brief         Reads the 3-axis magnetometer values for specified sensor.
  * 
  * @param hsensor Pointer to a LIS3MDL_t handler structure that contains the
  *                configuration and axis values information for specified sensor.
+ * @param hi2c    Pointer to I2C_HandleTypeDef for the I2C bus.
  * @return        LIS3MDL status
  */
-LIS3MDL_Result_t LIS3MDL_ReadMag(LIS3MDL_t *hsensor);
+LIS3MDL_Result_t LIS3MDL_ReadMag(LIS3MDL_t *hsensor, I2C_HandleTypeDef *hi2c);
 
 /**
  * @brief         Reads the temperature in Celcius for specified sensor.
  * 
  * @param hsensor Pointer to a LIS3MDL_t handler structure that contains the
  *                configuration and axis values information for specified sensor.
+ * @param hi2c    Pointer to I2C_HandleTypeDef for the I2C bus.
  * @return        LIS3MDL status
  */
-LIS3MDL_Result_t LIS3MDL_ReadTemp(LIS3MDL_t *hsensor);
+LIS3MDL_Result_t LIS3MDL_ReadTemp(LIS3MDL_t *hsensor, I2C_HandleTypeDef *hi2c);
 
 #endif /* LIS3MDL_H */
