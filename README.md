@@ -37,7 +37,7 @@ The LIS3MDL is an ultra-low-power highperformance three-axis magnetic sensor. Th
 - `Ox1E` when `SA1` pulled to *VDD*.
 
 ## About
-This library is created for STM32 development environment and can be used only with STM32F series microcontrollers for now. An example project will be added soon..
+This library is created for STM32 development environment and can be used only with STM32F series microcontrollers for now. Example project: [`/example`](./example)
 
 ***Note:**  This library requires HAL!*
 
