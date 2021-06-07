@@ -3,7 +3,7 @@
 
 **Author:** Talha Sarı
 ## Description
-The LIS3MDL is an ultra-low-power highperformance three-axis magnetic sensor. The LIS3MDL has user-selectable full scales of  ±4/±8/±12/±16 gauss. The self-test capability allows the user to check the functioning of the sensor in the final application. The device may be configured to generate interrupt signals for magnetic field detection. The LIS3MDL includes an I2C serial bus interface that supports standard and fast mode (100 kHz and 400 kHz) and SPI serial standard interface. For more check datasheet: [`/doc/LIS3MDL Datasheet.pdf`]('./doc/LIS3MDL Datasheet.pdf')
+The LIS3MDL is an ultra-low-power highperformance three-axis magnetic sensor. The LIS3MDL has user-selectable full scales of  ±4/±8/±12/±16 gauss. The self-test capability allows the user to check the functioning of the sensor in the final application. The device may be configured to generate interrupt signals for magnetic field detection. The LIS3MDL includes an I2C serial bus interface that supports standard and fast mode (100 kHz and 400 kHz) and SPI serial standard interface. For more check datasheet: [`/doc/LIS3MDL_Datasheet.pdf`](./doc/LIS3MDL_Datasheet.pdf)
 ## Features
 - Wide supply voltage, 1.9 V to 3.6 V
 - Independent IO supply (1.8 V)
