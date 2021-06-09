@@ -13,9 +13,9 @@
 #include "LIS3MDL.h"
 
 /* I2C R/W Function Prototypes */
-static HAL_StatusTypeDef writeByte(I2C_HandleTypeDef *hi2c1, uint8_t device_addr, uint8_t register_addr, uint8_t data);
-static HAL_StatusTypeDef readByte(I2C_HandleTypeDef *hi2c1, uint8_t device_addr, uint8_t register_addr, uint8_t *data);
-static HAL_StatusTypeDef readMultiBytes(I2C_HandleTypeDef *hi2c1, uint8_t device_addr, uint8_t register_addr, uint8_t *data, uint16_t count);
+static HAL_StatusTypeDef writeByte(I2C_HandleTypeDef *hi2c, uint8_t device_addr, uint8_t register_addr, uint8_t data);
+static HAL_StatusTypeDef readByte(I2C_HandleTypeDef *hi2c, uint8_t device_addr, uint8_t register_addr, uint8_t *data);
+static HAL_StatusTypeDef readMultiBytes(I2C_HandleTypeDef *hi2c, uint8_t device_addr, uint8_t register_addr, uint8_t *data, uint16_t count);
 
 /* Sensor Functions */
 LIS3MDL_Result_t LIS3MDL_Init(LIS3MDL_t *hsensor, I2C_HandleTypeDef *hi2c, LIS3MDL_Device_t dev, LIS3MDL_Scale_t scale, LIS3MDL_OperationMode_t mode, LIS3MDL_ODR_t odr)
@@ -113,7 +113,7 @@ LIS3MDL_Result_t LIS3MDL_ReadTemp(LIS3MDL_t *hsensor, I2C_HandleTypeDef *hi2c)
 }
 
 /* I2C R/W Functions */
-static HAL_StatusTypeDef writeByte(I2C_HandleTypeDef *hi2c1, uint8_t device_addr, uint8_t register_addr, uint8_t data)
+static HAL_StatusTypeDef writeByte(I2C_HandleTypeDef *hi2c, uint8_t device_addr, uint8_t register_addr, uint8_t data)
 {
     uint8_t buffer[2];
     buffer[0] = register_addr;
@@ -125,27 +125,27 @@ static HAL_StatusTypeDef writeByte(I2C_HandleTypeDef *hi2c1, uint8_t device_addr
     return HAL_OK;
 }
 
-static HAL_StatusTypeDef readByte(I2C_HandleTypeDef *hi2c1, uint8_t device_addr, uint8_t register_addr, uint8_t *data)
+static HAL_StatusTypeDef readByte(I2C_HandleTypeDef *hi2c, uint8_t device_addr, uint8_t register_addr, uint8_t *data)
 {
-    if (HAL_I2C_Master_Transmit(hi2c1, (uint16_t)device_addr, &register_addr, 1, 1000) != HAL_OK) {
-        if (HAL_I2C_GetError(hi2c1) != HAL_I2C_ERROR_AF) {}
+    if (HAL_I2C_Master_Transmit(hi2c, (uint16_t)device_addr, &register_addr, 1, 1000) != HAL_OK) {
+        if (HAL_I2C_GetError(hi2c) != HAL_I2C_ERROR_AF) {}
         return HAL_ERROR;
     }
-    if (HAL_I2C_Master_Receive(hi2c1, (uint16_t)device_addr, data, 1, 1000) != HAL_OK) {
-        if (HAL_I2C_GetError(hi2c1) != HAL_I2C_ERROR_AF) {}
+    if (HAL_I2C_Master_Receive(hi2c, (uint16_t)device_addr, data, 1, 1000) != HAL_OK) {
+        if (HAL_I2C_GetError(hi2c) != HAL_I2C_ERROR_AF) {}
         return HAL_ERROR;
     }
     return HAL_OK;
 }
 
-static HAL_StatusTypeDef readMultiBytes(I2C_HandleTypeDef *hi2c1, uint8_t device_addr, uint8_t register_addr, uint8_t *data, uint16_t count)
+static HAL_StatusTypeDef readMultiBytes(I2C_HandleTypeDef *hi2c, uint8_t device_addr, uint8_t register_addr, uint8_t *data, uint16_t count)
 {
-    if (HAL_I2C_Master_Transmit(hi2c1, (uint16_t)device_addr, &register_addr, 1, 1000) != HAL_OK) {
-        if (HAL_I2C_GetError(hi2c1) != HAL_I2C_ERROR_AF) {}
+    if (HAL_I2C_Master_Transmit(hi2c, (uint16_t)device_addr, &register_addr, 1, 1000) != HAL_OK) {
+        if (HAL_I2C_GetError(hi2c) != HAL_I2C_ERROR_AF) {}
         return HAL_ERROR;
     }
-    if (HAL_I2C_Master_Receive(hi2c1, (uint16_t)device_addr, data, count, 1000) != HAL_OK) {
-        if (HAL_I2C_GetError(hi2c1) != HAL_I2C_ERROR_AF) {}
+    if (HAL_I2C_Master_Receive(hi2c, (uint16_t)device_addr, data, count, 1000) != HAL_OK) {
+        if (HAL_I2C_GetError(hi2c) != HAL_I2C_ERROR_AF) {}
         return HAL_ERROR;
     }
     return HAL_OK;
